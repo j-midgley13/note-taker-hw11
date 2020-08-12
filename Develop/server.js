@@ -56,6 +56,31 @@ app.post("/api/notes", function(req, res) {
   })
 });
 
+//delete path. const grabs id. filter finds note with matching ID. restring and rewrite db.json
+app.delete("/api/notes/:id", function(req, res) {
+
+    const id = req.params.id;
+    console.log(id);
+
+    fs.readFile('db/db.json', "utf8", function(err, data) {
+        if (err) {
+            return console.log(err);
+        }
+
+        let jsonNotes = JSON.parse(data);
+
+        jsonNotes = jsonNotes.filter(note => note.id !== id);
+
+        fs.writeFile('db/db.json', JSON.stringify(jsonNotes), function(err, res) {
+            if (err) {
+                return console.log(err);
+            }
+            return res;
+        })
+        
+    })
+});
+
 // learned that * needs to come after the other paths.
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, "public/index.html"));
