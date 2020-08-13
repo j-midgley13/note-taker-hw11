@@ -1,80 +1,55 @@
-# Unit 11 Express Homework: Note Taker
+# Note Taker Homework 11  
 
-## Description
+## Introduction  
 
-Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.
+This assignment was given for any user of the program to write notes that save and persist to the page. Also have the capability to take down the notes. This assignment was for the benefit of using express to set up paths for a deployed site. We then used Heroku to deploy the working app.
 
-* The application frontend has already been created, it's your job to build the backend and connect the two.
+## Table of Contents:  
+* [Objectives](#Objectives)
+* [Process](#Process)
+* [Challenges](#Challenges)
+* [Summary](#Summary)
+* [Sites](#Sites)
+* [Screenshots](#Screenshots)
 
-* The following HTML routes should be created:
+## Objectives  
 
-  * GET `/notes` - Should return the `notes.html` file.
+```md
+As a user, I want to be able to write and save notes
+I want to be able to delete notes I've written before
+So that I can organize my thoughts and keep track of tasks I need to complete.
+```
 
-  * GET `*` - Should return the `index.html` file
+## Process  
 
-* The application should have a `db.json` file on the backend that will be used to store and retrieve notes using the `fs` module.
+* I first copied the homework into my own repository for the assignment.  
+* I then installed npm i and express into my repository. 
+* I then created a server.js file that serves as the listening file for node.js
+* I then went and gathered from past activities much of the boiler plate for dependencies, paths, and listeners.  
+* I then continued to hone down into the paths to get all the html and api pages working.
+* I then added app.post and app.delete functions for the notes to be added and deleted.
+* I then set up a deployed app with Heroku showing the final project.    
 
-* The following API routes should be created:
+## Challenges  
 
-  * GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
+This assignment had a lot of headache for me! I got the boiler plate dependencies and paths for the server.js file. I ran into a problem with the /api/notes file not wanting to render at all. I conversed and looked over classmate's code and found it to look the same but it still wouldn't load. After leaving it and working on other projects, I came back and it worked. I don't understand why, because I didn't change anything. Perhaps another program was using my localhost:8080. After I got that figured out, it was trying to build correct json paths for notes to be added and deleted. After some trial and error, activity searching, and googling, I looked to some classmates for help which I was able to learn a lot. I also had trouble deploying to Heroku by not having a buildpack. A learning assistant explained I needed to have my package.json file in my root directory which fixed the problem.
 
-  * POST `/api/notes` - Should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
+## Summary  
 
-  * DELETE `/api/notes/:id` - Should receive a query parameter containing the id of a note to delete. This means you'll need to find a way to give each note a unique `id` when it's saved. In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
+This assignment was another fun challenge for me. I am having a slower time grasping some concepts for back-end as opposed to front-end, but I am slowly figuring things out. When they do work correctly, it brings immense pleasure. It is interesting to see how paths and things can link up code and how express can make things easier than just going through node. Excited to continue my learning journey!
 
-## User Story
+## Sites  
 
-AS A user, I want to be able to write and save notes
+* [Link to deployed app on Heroku](https://mysterious-wave-79346.herokuapp.com/)
+* [Link to repository on GitHub](https://github.com/j-midgley13/note-taker-hw11)
 
-I WANT to be able to delete notes I've written before
+## Screenshots
 
-SO THAT I can organize my thoughts and keep track of tasks I need to complete
+![Note Taker /index (home) page](Develop/public/assets/images/note-taker-index.png)
+![Note Taker /notes page](Develop/public/assets/images/note-save.png)
+![/notes page with note pushed](Develop/public/assets/images/note-taker-pushed.png)
+![API page with note in json](Develop/public/assets/images/api-note-save.png)
+![/notes page with note deleted](Develop/public/assets/images/note-delete.png)
+![API page with noted deleted](Develop/public/assets/images/api-note-delete.png)
 
-## Business Context
 
-For users that need to keep track of a lot of information, it's easy to forget or be unable to recall something important. Being able to take persistent notes allows users to have written information available when needed.
-
-## Acceptance Criteria
-
-Application should allow users to create and save notes.
-
-Application should allow users to view previously saved notes.
-
-Application should allow users to delete previously saved notes.
-
-## Deploying the App
-
-You will not be able to deploy your server side code on GitHub pages. This app should be deployed on Heroku. Carefully follow the [Heroku Guide](../04-Supplemental/HerokuGuide.md) for getting your app deployed on Heroku.
-
-- - -
-
-## Commit Early and Often
-
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
-
-* Your commit history is a signal to employers that you are actively working on projects and learning new skills.
-
-* Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
-
-Follow these guidelines for committing:
-
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
-
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
-
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
-
-* Test your application before you commit to ensure functionality at every step in the development process.
-
-We would like you to have well over 200 commits by graduation, so commit early and often!
-
-## Submission on BCS
-
-You are required to submit the following:
-
-* The URL of the deployed application. This should be the link to the url provided by Heroku. Be sure not to submit a link to the Heroku dashboard.
-
-* The URL of the GitHub repository
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
